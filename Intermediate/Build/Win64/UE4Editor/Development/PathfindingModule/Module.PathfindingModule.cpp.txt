@@ -1,0 +1,11 @@
+E:\S_003_SEA_SYZ\Plugins\PathfindingModule\Intermediate\Build\Win64\UE4Editor\Development\PathfindingModule\Definitions.PathfindingModule.h
+E:\S_003_SEA_SYZ\Plugins\PathfindingModule\Source\PathfindingModule\Private\PathfindingManager.cpp
+E:\S_003_SEA_SYZ\Plugins\PathfindingModule\Source\PathfindingModule\Public\PathfindingManager.h
+E:\S_003_SEA_SYZ\Plugins\PathfindingModule\Intermediate\Build\Win64\UE4Editor\Inc\PathfindingModule\PathfindingManager.generated.h
+E:\EpicStore\UE_4.22\Engine\Source\Runtime/Engine/Public/DrawDebugHelpers.h
+E:\EpicStore\UE_4.22\Engine\Source\Runtime/Engine/Classes/Components/BoxComponent.h
+E:\EpicStore\UE_4.22\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
+E:\EpicStore\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeComponent.generated.h
+E:\EpicStore\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\BoxComponent.generated.h
+E:\S_003_SEA_SYZ\Plugins\PathfindingModule\Source\PathfindingModule\Private\PathfindingModule.cpp
+E:\S_003_SEA_SYZ\Plugins\PathfindingModule\Source\PathfindingModule\Public\PathfindingModule.h

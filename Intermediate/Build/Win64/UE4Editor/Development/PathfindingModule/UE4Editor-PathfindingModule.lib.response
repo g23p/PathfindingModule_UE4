@@ -1,0 +1,14 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-PathfindingModule.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"E:\S_003_SEA_SYZ\Intermediate\Build\Win64\S_003_SEA_SYZEditor\Development\Engine\SharedPCH.Engine.h.obj"
+"E:\S_003_SEA_SYZ\Plugins\PathfindingModule\Intermediate\Build\Win64\UE4Editor\Development\PathfindingModule\Module.PathfindingModule.cpp.obj"
+"E:\S_003_SEA_SYZ\Plugins\PathfindingModule\Intermediate\Build\Win64\UE4Editor\Development\PathfindingModule\Module.PathfindingModule.gen.cpp.obj"
+"E:\S_003_SEA_SYZ\Plugins\PathfindingModule\Intermediate\Build\Win64\UE4Editor\Development\PathfindingModule\Default.rc2.res"
+/OUT:"E:\S_003_SEA_SYZ\Plugins\PathfindingModule\Intermediate\Build\Win64\UE4Editor\Development\PathfindingModule\UE4Editor-PathfindingModule.lib"
+/INCLUDE:IMPLEMENT_MODULE_PathfindingModule

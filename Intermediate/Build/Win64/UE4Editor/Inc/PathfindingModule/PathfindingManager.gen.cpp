@@ -26,6 +26,7 @@ void EmptyLinkFunctionForGeneratedCodePathfindingManager() {}
 	PATHFINDINGMODULE_API UFunction* Z_Construct_UFunction_APathfindingManager_FindPath();
 	PATHFINDINGMODULE_API UFunction* Z_Construct_UFunction_APathfindingManager_InitNavigationArea();
 	PATHFINDINGMODULE_API UFunction* Z_Construct_UFunction_APathfindingManager_Test();
+	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 // End Cross Module References
 class UScriptStruct* FPathfindingVoxel::StaticStruct()
 {
@@ -475,6 +476,11 @@ static struct FScriptStruct_PathfindingModule_StaticRegisterNativesFPathfindingD
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ActorToIgnore_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_ActorToIgnore;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ActorToIgnore_Inner;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DebugParam_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_DebugParam;
@@ -525,6 +531,14 @@ static struct FScriptStruct_PathfindingModule_StaticRegisterNativesFPathfindingD
 		{ "ModuleRelativePath", "Public/PathfindingManager.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APathfindingManager_Statics::NewProp_ActorToIgnore_MetaData[] = {
+		{ "Category", "Pathfinding" },
+		{ "ModuleRelativePath", "Public/PathfindingManager.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_APathfindingManager_Statics::NewProp_ActorToIgnore = { "ActorToIgnore", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APathfindingManager, ActorToIgnore), METADATA_PARAMS(Z_Construct_UClass_APathfindingManager_Statics::NewProp_ActorToIgnore_MetaData, ARRAY_COUNT(Z_Construct_UClass_APathfindingManager_Statics::NewProp_ActorToIgnore_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APathfindingManager_Statics::NewProp_ActorToIgnore_Inner = { "ActorToIgnore", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APathfindingManager_Statics::NewProp_DebugParam_MetaData[] = {
 		{ "Category", "Pathfinding" },
@@ -584,6 +598,8 @@ static struct FScriptStruct_PathfindingModule_StaticRegisterNativesFPathfindingD
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APathfindingManager_Statics::NewProp_RootBoxSize = { "RootBoxSize", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APathfindingManager, RootBoxSize), METADATA_PARAMS(Z_Construct_UClass_APathfindingManager_Statics::NewProp_RootBoxSize_MetaData, ARRAY_COUNT(Z_Construct_UClass_APathfindingManager_Statics::NewProp_RootBoxSize_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_APathfindingManager_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APathfindingManager_Statics::NewProp_ActorToIgnore,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APathfindingManager_Statics::NewProp_ActorToIgnore_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APathfindingManager_Statics::NewProp_DebugParam,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APathfindingManager_Statics::NewProp_bDrawDebug,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APathfindingManager_Statics::NewProp_bPrintInfo,
@@ -619,7 +635,7 @@ static struct FScriptStruct_PathfindingModule_StaticRegisterNativesFPathfindingD
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APathfindingManager, 3686400047);
+	IMPLEMENT_CLASS(APathfindingManager, 2036341657);
 	template<> PATHFINDINGMODULE_API UClass* StaticClass<APathfindingManager>()
 	{
 		return APathfindingManager::StaticClass();

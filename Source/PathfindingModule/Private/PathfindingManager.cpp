@@ -38,6 +38,7 @@ void APathfindingManager::BeginPlay()
 	VoxelCollisionObjectParams.AddObjectTypesToQuery(ECollisionChannel::ECC_Visibility);
 
 	VoxelCollisionQueryParams = FCollisionQueryParams(FName("DonCollisionQuery", false));
+	VoxelCollisionQueryParams.AddIgnoredActors(ActorToIgnore);
 
 	//InitNavigationArea();
 }
@@ -176,6 +177,7 @@ FPathfindingVoxel * APathfindingManager::GetVoxelPtrByLocation(FVector InputLoca
 	
 	while(!bIsLastLevel)
 	{
+		bool bIsFound = false;
 		for (FPathfindingVoxel* VoxelPtr : VoxelArray)
 		{
 			if (IsInThisVoxel(VoxelPtr, InputLocation))
@@ -194,10 +196,13 @@ FPathfindingVoxel * APathfindingManager::GetVoxelPtrByLocation(FVector InputLoca
 					bIsLastLevel = true;
 					FoundVoxel = VoxelPtr;
 				}
-				
+				bIsFound = true;
 				break;
 			}
 		}
+
+		if (!bIsFound)
+			return nullptr;
 	}
 
 	return FoundVoxel;
@@ -334,14 +339,17 @@ TArray<FPathfindingVoxel> APathfindingManager::GetNeighbours(FPathfindingVoxel I
 		}
 
 		FPathfindingVoxel* NewVoxel = GetVoxelPtrByLocation(NewLocation, InputVoxel.Level);
-		if (NewVoxel->ChildrenVoxelArray.Num() != 0)
+		if (NewVoxel != nullptr)
 		{
-			NeighboursVoxel.Append(GetOneSideVoxel(*NewVoxel, ChildrenDirection));
-			
-		}
-		else
-		{
-			NeighboursVoxel.Add(*NewVoxel);
+			if (NewVoxel->ChildrenVoxelArray.Num() != 0)
+			{
+				NeighboursVoxel.Append(GetOneSideVoxel(*NewVoxel, ChildrenDirection));
+
+			}
+			else
+			{
+				NeighboursVoxel.Add(*NewVoxel);
+			}
 		}
 	}
 

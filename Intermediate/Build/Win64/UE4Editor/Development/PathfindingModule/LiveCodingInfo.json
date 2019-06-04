@@ -1,0 +1,13 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.PathfindingModule.cpp.obj": [
+			"PathfindingManager.cpp.obj",
+			"PathfindingModule.cpp.obj"
+		],
+		"Module.PathfindingModule.gen.cpp.obj": [
+			"PathfindingManager.gen.cpp.obj",
+			"PathfindingModule.init.gen.cpp.obj"
+		]
+	}
+}

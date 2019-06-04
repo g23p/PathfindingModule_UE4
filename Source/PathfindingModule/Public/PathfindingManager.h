@@ -93,6 +93,9 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Pathfinding")
 		FPathfindingDebugParams DebugParam;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Pathfinding")
+		TArray<AActor*> ActorToIgnore;
+
 	UBoxComponent* PreviewBoxExtent;
 
 

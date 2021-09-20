@@ -71,6 +71,8 @@ public:
 	// Sets default values for this actor's properties
 	APathfindingManager();
 
+	~APathfindingManager();
+
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Pathfinding")
 		float RootBoxSize;
 
@@ -154,4 +156,6 @@ public:
 	TArray<FPathfindingVoxel> RemoveExcessVoxel(TArray<FPathfindingVoxel> InputArray);
 
 	bool IsDirectPathLineTrace(FPathfindingVoxel StartVoxel, FPathfindingVoxel EndVoxel);
+
+	void ClearAllVoxel();
 };

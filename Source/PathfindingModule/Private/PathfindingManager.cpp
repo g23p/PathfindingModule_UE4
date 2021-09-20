@@ -1,9 +1,11 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "PathfindingManager.h"
 #include "Runtime/Engine/Public/DrawDebugHelpers.h"
 #include "Runtime/Engine/Classes/Components/BoxComponent.h"
+
+#include "Engine.h"
 
 DEFINE_LOG_CATEGORY(PathfindingLog);
 
@@ -26,6 +28,11 @@ APathfindingManager::APathfindingManager()
 	MaxLevel = 0;
 	MinimumBoxSize = 100.f;
 	AfterInit = false;
+}
+
+APathfindingManager::~APathfindingManager()
+{
+	ClearAllVoxel();
 }
 
 // Called when the game starts or when spawned
@@ -59,7 +66,7 @@ void APathfindingManager::OnConstruction(const FTransform & Transform)
 
 void APathfindingManager::InitNavigationArea()
 {
-	VoxelTree.Empty();
+	ClearAllVoxel();
 	FVoxelArrayInLevel* VoxelArrayStruct = new FVoxelArrayInLevel();
 	VoxelTree.Add(0, VoxelArrayStruct);
 
@@ -174,7 +181,7 @@ FPathfindingVoxel * APathfindingManager::GetVoxelPtrByLocation(FVector InputLoca
 	TArray<FPathfindingVoxel*> VoxelArray = VoxelTree[LevelNowInFunc]->VoxelArray;
 	bool bIsLastLevel = false;
 	FPathfindingVoxel* FoundVoxel = nullptr;
-	
+
 	while(!bIsLastLevel)
 	{
 		bool bIsFound = false;
@@ -475,5 +482,23 @@ bool APathfindingManager::IsDirectPathLineTrace(FPathfindingVoxel StartVoxel, FP
 	FHitResult HitResult;
 
 	return !GetWorld()->LineTraceSingleByObjectType(HitResult, StartVoxel.CenterLocation, EndVoxel.CenterLocation, VoxelCollisionObjectParams, VoxelCollisionQueryParams);
+}
+
+void APathfindingManager::ClearAllVoxel()
+{
+	for (auto Pair : VoxelTree)
+	{
+		FVoxelArrayInLevel* VoxelStruct = Pair.Value;
+		
+		for (FPathfindingVoxel* Voxel : VoxelStruct->VoxelArray)
+		{
+			delete Voxel;
+		}
+
+		VoxelStruct->VoxelArray.Empty();
+		delete VoxelStruct;
+	}
+
+	VoxelTree.Empty();
 }
 
